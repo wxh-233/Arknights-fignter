@@ -3,9 +3,11 @@
 #include"tool/tool.h"
 #include"tool/game.h"
 #include"cards/Arkcards.h"
+#include"cards/enemy.h"
 using namespace std;
 using namespace tool;
 using namespace game;
+using namespace enemy;
 using namespace Arkcards;
 void chose_gamemode()
 {
@@ -36,7 +38,7 @@ void chose_gamemode()
 		}
 		//找存档
 		*/
-		play_start(player_number);
+		PVP(player_number);
 	}
 	if (chose == 2)
 	{
@@ -46,6 +48,9 @@ void chose_gamemode()
 }
 int main()
 {
+	srand(time(0));
+	start_make_enemy();
+	start_make_Arkcards();
 	chose_gamemode();
 	return 0;
 }
